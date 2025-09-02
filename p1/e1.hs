@@ -45,4 +45,17 @@ evaluarEnCero = \f -> f 0
 dosVeces :: (Float -> Float) -> (Float -> Float)
 dosVeces = \f -> f . f
 
+flipAll :: [a -> b -> c] -> [b -> a -> c]
+flipAll = map flip
 
+-- >>> fs = [(-), div]
+-- >>> (head (flipAll fs)) 2 3
+-- 1
+
+--flipRaro :: (a -> b -> c) -> (a -> b -> c)
+
+-- flip :: (a -> b -> c) -> b -> a -> c
+-- flip flip :: b -> (a -> b -> c) -> a -> c
+
+flipRaro :: b -> (a -> b -> c) -> a -> c
+flipRaro = flip flip
